@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pips Mafia AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>The Pips Mafia AI</h1>
+            <p>Advanced Chart Analysis with AI</p>
+        </header>
+
+        <main class="analyzer">
+            <div class="card input-card">
+                <h2>1. Upload Your Chart</h2>
+                <div class="file-upload-area">
+                    <input type="file" id="chartImageInput" accept="image/*" hidden>
+                    <label for="chartImageInput" id="fileUploadLabel">
+                        <span>Click to Upload or Drag & Drop</span>
+                    </label>
+                    <img id="imagePreview" src="#" alt="Chart Preview" class="hidden"/>
+                </div>
+
+                <h2>2. Select Strategy & Timeframe</h2>
+                <form id="analysisForm">
+                    <div class="options-grid">
+                        <div class="option-group">
+                            <label class="group-label">Strategy</label>
+                            <div class="choices">
+                                <label><input type="radio" name="strategy" value="SMC" checked><span>SMC</span></label>
+                                <label><input type="radio" name="strategy" value="ICT"><span>ICT</span></label>
+                                <label><input type="radio" name="strategy" value="Price Action"><span>Price Action</span></label>
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label class="group-label">Timeframe</label>
+                            <div class="choices">
+                                <label><input type="radio" name="timeframe" value="M5" checked><span>M5</span></label>
+                                <label><input type="radio" name="timeframe" value="M15"><span>M15</span></label>
+                                <label><input type="radio" name="timeframe" value="M30"><span>M30</span></label>
+                                <label><input type="radio" name="timeframe" value="H1"><span>H1</span></label>
+                                <label><input type="radio" name="timeframe" value="H4"><span>H4</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="analyze-button">Analyze with AI</button>
+                </form>
+            </div>
+
+            <div class="card output-card hidden">
+                <h2>AI Analysis Result</h2>
+                <div id="loader" class="hidden"></div>
+                <div id="analysisResult" class="hidden">
+                    <div class="result-item">
+                        <h3>Suggested Position</h3>
+                        <p id="resultPosition">-</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Reasoning</h3>
+                        <p id="resultReasoning">-</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 The Pips Mafia. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

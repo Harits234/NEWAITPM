@@ -1,0 +1,246 @@
+:root {
+    --primary-bg-color: #1a1a1d;
+    --secondary-bg-color: #2c2c34;
+    --border-color: #4f4f5e;
+    --text-color: #e1e1e6;
+    --accent-color: #ffd700; /* Gold */
+    --accent-hover-color: #ffdf33;
+    --text-muted: #a8a8b3;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+header, footer {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.analyzer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 800px) {
+    .analyzer {
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+    }
+}
+
+.card {
+    background-color: var(--secondary-bg-color);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.file-upload-area {
+    margin-bottom: 25px;
+}
+
+#fileUploadLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--primary-bg-color);
+}
+
+#fileUploadLabel:hover {
+    border-color: var(--accent-color);
+    background-color: #31313a;
+}
+
+#fileUploadLabel span {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+#imagePreview {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.option-group .group-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+.option-group .choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.option-group .choices label {
+    position: relative;
+}
+
+.option-group .choices input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.option-group .choices span {
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.option-group .choices input[type="radio"]:checked + span {
+    background-color: var(--accent-color);
+    color: var(--primary-bg-color);
+    border-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.option-group .choices input[type="radio"]:hover:not(:checked) + span {
+    border-color: var(--text-color);
+}
+
+.analyze-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-bg-color);
+    background: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.analyze-button:hover {
+    background: var(--accent-hover-color);
+}
+
+.analyze-button:active {
+    transform: scale(0.98);
+}
+
+.analyze-button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+.output-card {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+#analysisResult .result-item {
+    margin-bottom: 20px;
+}
+
+#analysisResult h3 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+#analysisResult p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+} 

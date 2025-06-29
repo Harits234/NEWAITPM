@@ -1,0 +1,17 @@
+{
+  "name": "thepipsmafiaai-backend",
+  "version": "1.0.0",
+  "description": "Backend server for The Pips Mafia AI to process chart analysis.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "trading",
+    "ai",
+    "analysis",
+    "gemini"
+  ],
+  "author": "",
+  "license": "ISC"
+} 
